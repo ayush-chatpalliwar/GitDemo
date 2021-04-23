@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EmployeeMicroservices.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,17 @@ namespace EmployeeMicroservices.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
+        public GitDBContext service;
+
+        public EmployeeController()
+        {
+            service = new GitDBContext();
+        }
         [HttpGet]
         //[Route("api/[controller]")]
         public IActionResult GetEmployee()
         {
-            return Ok();
+            return Ok(service.Employees.ToList());
         }
 
     }
