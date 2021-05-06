@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeMicroservices.Models
 {
-    [Table("Employee")]
+    [Table("Employees")]
     public partial class Employee
     {
         [Key]
