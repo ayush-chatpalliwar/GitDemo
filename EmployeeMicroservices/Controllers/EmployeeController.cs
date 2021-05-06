@@ -22,7 +22,7 @@ namespace EmployeeMicroservices.Controllers
         //[Route("api/[controller]")]
         public IActionResult GetEmployee()
         {
-            return Ok(service.Employees.ToList());
+            return Ok(service.Employees.Where(x => x.Gender=="Male").ToList());
         }
 
 
